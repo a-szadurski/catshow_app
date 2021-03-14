@@ -1,26 +1,38 @@
 package pl.coderslab.catshowapp.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "contestants")
+@Getter
+@Setter
+@ToString
 public class Contestant {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "contestant_id")
     private Long id;
     private String rating;
 
     @ManyToOne
+    @JoinColumn(name = "show_dates_id")
     private ShowDates showDate;
 
     @ManyToOne
-    private Judge judge;
-
-    @ManyToOne
+    @JoinColumn(name = "cat_id")
     private Cat cat;
 
     @ManyToOne
-    private Owner owner;
+    @JoinColumn(name = "exhibitor_id")
+    private Exhibitor exhibitor;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
 }

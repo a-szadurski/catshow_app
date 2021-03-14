@@ -7,21 +7,18 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "shows")
+@Table(name = "roles")
 @Getter
 @Setter
 @ToString
-public class Show {
+public class Role {
 
-    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "show_id")
+    @Id
+    @Column(name = "role_id")
     private Long id;
-    @Column(name = "show_name")
+    @Column(name = "role_name")
     private String name;
-    private String city;
-    private String country;
-    private String organizer;
 
 
 }
