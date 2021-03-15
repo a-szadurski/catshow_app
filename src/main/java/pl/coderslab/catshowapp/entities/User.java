@@ -12,6 +12,8 @@ import java.util.Set;
 @Setter
 public class User {
 
+    //gantella allea
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
