@@ -20,9 +20,9 @@ import java.util.List;
 @RequestMapping("/")
 public class HomeController {
 
-    ContestantRepository contestantRepository;
-    ShowRepository showRepository;
-    ShowDatesRepository showDatesRepository;
+    private ContestantRepository contestantRepository;
+    private ShowRepository showRepository;
+    private ShowDatesRepository showDatesRepository;
 
     public HomeController(ContestantRepository contestantRepository, ShowRepository showRepository,
                           ShowDatesRepository showDatesRepository) {
