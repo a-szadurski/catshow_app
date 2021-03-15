@@ -19,11 +19,11 @@ public class Contestant {
     private Long id;
     private String rating;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "show_dates_id")
     private ShowDates showDate;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cat_id")
     private Cat cat;
 
@@ -31,7 +31,7 @@ public class Contestant {
     @JoinColumn(name = "exhibitor_id")
     private Exhibitor exhibitor;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User user;
 

@@ -22,6 +22,7 @@ public class Show {
     private String city;
     private String country;
     private String organizer;
+    private boolean concluded;
 
 
 }
