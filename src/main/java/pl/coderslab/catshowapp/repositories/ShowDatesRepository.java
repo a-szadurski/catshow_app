@@ -12,6 +12,6 @@ public interface ShowDatesRepository extends JpaRepository<ShowDates, Long> {
 //            nativeQuery = true)
 //    List<Long> findShowDatesByShowId(Long id);
 
-    @Query("SELECT sd FROM ShowDates sd WHERE sd.id=?1 order by sd.id")
+    @Query("SELECT sd FROM ShowDates sd WHERE sd.show.id=?1 order by sd.id")
     List<ShowDates> findShowDatesByShowId(Long id);
 }

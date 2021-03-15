@@ -33,6 +33,8 @@ public class HomeController {
 
     @GetMapping
     public String startPage(Model model) {
+        Show upcomingClosest = showRepository.upcomingShowClosest();
+        List<ShowDates> upcomingDates = showDatesRepository.findShowDatesByShowId(upcomingClosest.getId());
         Show latestIdConcluded = showRepository.latestShowConcluded();
         List<ShowDates> latestDates = showDatesRepository.findShowDatesByShowId(latestIdConcluded.getId());
         List<Contestant> contestants = new ArrayList<>();
@@ -40,7 +42,9 @@ public class HomeController {
             contestants.addAll(contestantRepository.getContestantsByShowDateId(latestDate.getId()));
         }
 
-        model.addAttribute("show", latestIdConcluded);
+        model.addAttribute("upcomingShow", upcomingClosest);
+        model.addAttribute("upcomingDates", upcomingDates);
+        model.addAttribute("latestShow", latestIdConcluded);
         model.addAttribute("latestDates", latestDates);
         model.addAttribute("contestants", contestants);
         return "public/home";

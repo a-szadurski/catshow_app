@@ -6,7 +6,11 @@ import pl.coderslab.catshowapp.entities.Show;
 
 public interface ShowRepository extends JpaRepository<Show, Long> {
 
-    @Query(value="select * from shows where concluded = true ORDER BY show_id limit 1",
+    @Query(value="select * from shows where concluded = true ORDER BY show_id DESC limit 1",
             nativeQuery = true)
     Show latestShowConcluded();
+
+    @Query(value="SELECT * FROM shows WHERE concluded = false ORDER BY show_id ASC LIMIT 1",
+            nativeQuery = true)
+    Show upcomingShowClosest();
 }

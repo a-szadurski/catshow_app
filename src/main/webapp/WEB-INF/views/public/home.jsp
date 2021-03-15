@@ -4,8 +4,11 @@
 <!-- Header -->
 <header class="w3-container w3-grey w3-center" style="padding:64px 16px">
     <h2 class="w3-margin w3-jumbo">UPCOMING SHOW</h2>
-    <p class="w3-xlarge">XX.XX.XXXX, City</p>
-    <p class="w3-xlarge">Yet Another Cat Show of cats</p>
+    <p class="w3-xlarge">${upcomingShow.name}, ${upcomingShow.city}</p>
+
+    <c:forEach items="${upcomingDates}" var="upcomingDate">
+        <h4>${upcomingDate.date}</h4>
+    </c:forEach>
     <button class="w3-button w3-black w3-padding-large w3-medium w3-margin-top">Register your cat</button>
 </header>
 
@@ -15,8 +18,8 @@
         <div class="">
             <h1>Latest results</h1>
 
-                <h2>${show.name}, ${show.city}</h2>
-            <h3>Organized by: ${show.organizer}</h3>
+            <h2>${latestShow.name}, ${latestShow.city}</h2>
+            <h3>Organized by: ${latestShow.organizer}</h3>
             <c:forEach items="${latestDates}" var="latestDate">
                 <h4>${latestDate.date}</h4>
             </c:forEach>
