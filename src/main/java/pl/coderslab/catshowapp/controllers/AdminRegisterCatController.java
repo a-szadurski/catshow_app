@@ -11,7 +11,7 @@ import pl.coderslab.catshowapp.entities.Cat;
 public class AdminRegisterCatController {
 
     @GetMapping
-    public String displayForm(Model model){
+    public String displayForm(Model model) {
         model.addAttribute(new Cat());
         return "user/admin/admin-register-cat";
     }

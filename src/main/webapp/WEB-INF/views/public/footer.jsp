@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <!-- Footer -->
 <footer class="w3-container w3-padding-10 w3-center w3-opacity w3-black">
     <div class="w3-xlarge w3-padding-10">
