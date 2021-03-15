@@ -1,5 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%@include file="navbar.jsp"%>
+<%@include file="navbar.jsp" %>
 <!-- Header -->
 <header class="w3-container w3-grey w3-center" style="padding:64px 16px">
     <h2 class="w3-margin w3-jumbo">UPCOMING SHOW</h2>
@@ -9,69 +10,33 @@
 </header>
 
 <!-- First Grid -->
-<div class="w3-row-padding w3-padding-64 w3-container">
+<div class="w3-row-padding w3-container">
     <div class="w3-content">
-        <div class="w3-twothird">
+        <div class="">
             <h1>Latest results</h1>
-            <h2>XX.XX.XXXX, City</h2>
-            <h2>Past Show of Cats</h2>
+
+                <h2>${show.name}, ${show.city}</h2>
+            <h3>Organized by: ${show.organizer}</h3>
+            <c:forEach items="${latestDates}" var="latestDate">
+                <h4>${latestDate.date}</h4>
+            </c:forEach>
+
             <table class="w3-table-all">
                 <tbody>
                 <tr>
                     <th>KOT</th>
                     <th>EMS</th>
                     <th>RATING</th>
+                    <th>DATE</th>
                 </tr>
-                <tr>
-                    <td>name</td>
-                    <td>ems</td>
-                    <td>rating</td>
-                </tr>
-                <tr>
-                    <td>name</td>
-                    <td>ems</td>
-                    <td>rating</td>
-                </tr>
-                <tr>
-                    <td>name</td>
-                    <td>ems</td>
-                    <td>rating</td>
-                </tr>
-                <tr>
-                    <td>name</td>
-                    <td>ems</td>
-                    <td>rating</td>
-                </tr>
-                <tr>
-                    <td>name</td>
-                    <td>ems</td>
-                    <td>rating</td>
-                </tr>
-                <tr>
-                    <td>name</td>
-                    <td>ems</td>
-                    <td>rating</td>
-                </tr>
-                <tr>
-                    <td>name</td>
-                    <td>ems</td>
-                    <td>rating</td>
-                </tr>
-                <tr>
-                    <td>name</td>
-                    <td>ems</td>
-                    <td>rating</td>
-                </tr>
-                <tr>
-                    <td>name</td>
-                    <td>ems</td>
-                    <td>rating</td>
-                </tr>
-                <tr>
-                    <td>name</td>
-                    <td>ems</td>
-                    <td>rating</td>
-                </tr>
+                <c:forEach items="${contestants}" var="contestant">
+                    <tr>
+                        <td>${contestant.cat.name}</td>
+                        <td>${contestant.cat.ems}</td>
+                        <td>${contestant.rating}</td>
+                        <td>${contestant.showDate.date}</td>
+                    </tr>
+                </c:forEach>
                 </tbody>
             </table>
 
@@ -79,4 +44,4 @@
 
     </div>
 </div>
-<%@include file="footer.jsp"%>
+<%@include file="footer.jsp" %>

@@ -22,7 +22,7 @@ public class ShowDates {
     @Column(name = "date")
     private LocalDate date;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "show_id")
     private Show show;
 
