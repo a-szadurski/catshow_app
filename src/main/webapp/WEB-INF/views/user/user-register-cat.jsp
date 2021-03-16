@@ -3,7 +3,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="admin/dashboard-menu.jsp" %>
 
-<form:form method="post" modelAttribute="registerCatService">
+<form:form method="post" modelAttribute="registerCatCmd">
     <br>
     <br>
     <br>
