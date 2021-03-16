@@ -54,10 +54,5 @@
         </div>
     </div>
 </section>
-<%--<script type="text/javascript" src="${pageContext.request.contextPath}js/index.js"></script>--%>
-<%--<script type="text/javascript" src="${pageContext.request.contextPath}js/jquery.min.js"></script>--%>
-<%--<script type="text/javascript" src="${pageContext.request.contextPath}js/popper.js"></script>--%>
-<%--<script type="text/javascript" src="${pageContext.request.contextPath}js/bootstrap.min.js"></script>--%>
-<%--<script type="text/javascript" src="${pageContext.request.contextPath}js/main.js"></script>--%>
 </body>
 </html>
