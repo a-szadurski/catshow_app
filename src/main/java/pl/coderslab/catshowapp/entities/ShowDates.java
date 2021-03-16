@@ -30,7 +30,7 @@ public class ShowDates {
     @JoinTable(
             name = "shows_judges",
             joinColumns = @JoinColumn(name = "show_dates_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id")
+            inverseJoinColumns = @JoinColumn(name = "judge_id")
     )
-    private List<User> users;
+    private List<Judge> judges;
 }

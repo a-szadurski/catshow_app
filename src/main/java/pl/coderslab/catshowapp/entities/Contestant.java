@@ -32,7 +32,7 @@ public class Contestant {
     private Exhibitor exhibitor;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "judge_id")
+    private Judge judge;
 
 }
