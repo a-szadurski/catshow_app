@@ -27,7 +27,7 @@ public class Contestant {
     @JoinColumn(name = "cat_id")
     private Cat cat;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "exhibitor_id")
     private Exhibitor exhibitor;
 
