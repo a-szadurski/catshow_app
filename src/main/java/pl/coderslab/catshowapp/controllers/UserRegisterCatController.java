@@ -35,10 +35,10 @@ public class UserRegisterCatController {
     }
 
     @PostMapping
-    public String submitForm( RegisterCatCmd registerCatCmd, Contestant contestant) {
+    public String submitForm(RegisterCatCmd registerCatCmd, Contestant contestant) {
 
         Cat cat = catRepository.save(registerCatCmd.getCat());
-        Exhibitor exhibitor =exhibitorRepository.save(registerCatCmd.getExhibitor());
+        Exhibitor exhibitor = exhibitorRepository.save(registerCatCmd.getExhibitor());
         contestant = new Contestant();
         registerCatCmd.setContestant(contestant);
         contestant.setCat(cat);

@@ -22,15 +22,18 @@
                         <span class="fa fa-user-o"></span>
                     </div>
                     <h3 class="text-center mb-4">CatShowApp Admin</h3>
-                    <form name='login' action="${pageContext.request.contextPath}/login" method='POST' class="login-form">
+                    <form name='login' action="${pageContext.request.contextPath}/login" method='POST'
+                          class="login-form">
                         <div class="form-group">
                             <label>
-                                <input type="email" name="username" class="form-control rounded-left" placeholder="Email" required>
+                                <input type="email" name="username" class="form-control rounded-left"
+                                       placeholder="Email" required>
                             </label>
                         </div>
                         <div class="form-group d-flex">
                             <label>
-                                <input type="password" name="password" class="form-control rounded-left" placeholder="Password" required>
+                                <input type="password" name="password" class="form-control rounded-left"
+                                       placeholder="Password" required>
                             </label>
                         </div>
                         <div class="form-group d-md-flex">

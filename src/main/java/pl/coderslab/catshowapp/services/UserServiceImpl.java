@@ -23,10 +23,12 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
     }
+
     @Override
     public User findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
+
     @Override
     public void saveUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));

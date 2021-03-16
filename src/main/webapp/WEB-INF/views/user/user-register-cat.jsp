@@ -24,7 +24,7 @@
     <br>
     Cat's father: <form:input path="cat.father"/>
     <br>
-<%--    Cat's date of birth: <form:input type="date" path="cat.birthDate"/>--%>
+    <%--    Cat's date of birth: <form:input type="date" path="cat.birthDate"/>--%>
     <br>
     Exhibitor's first name: <form:input path="exhibitor.firstName"/>
     <br>

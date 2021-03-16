@@ -1,9 +1,6 @@
 package pl.coderslab.catshowapp.controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import pl.coderslab.catshowapp.entities.User;
 import pl.coderslab.catshowapp.services.UserService;
 
 @Controller

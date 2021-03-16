@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class DashboardController {
 
     @GetMapping("/main")
-    public String dashboardMainDisplay(){
+    public String dashboardMainDisplay() {
         return "user/dashboard-main";
     }
 
