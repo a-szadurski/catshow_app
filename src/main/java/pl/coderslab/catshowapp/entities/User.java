@@ -12,8 +12,6 @@ import java.util.Set;
 @Setter
 public class User {
 
-    //gantella allea
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
@@ -25,10 +23,6 @@ public class User {
     private String email;
     private String password;
     private boolean enabled;
-    private boolean category01;
-    private boolean category02;
-    private boolean category03;
-    private boolean category04;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
