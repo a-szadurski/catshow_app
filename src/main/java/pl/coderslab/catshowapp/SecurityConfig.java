@@ -29,9 +29,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/user/**").hasAnyRole("USER","ADMIN")
                 .antMatchers("/admin/**").hasAnyRole("ADMIN")
-                .and().formLogin().loginPage("/login")
-                .and().logout().logoutSuccessUrl("/")
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .defaultSuccessUrl("/user/dashboard/main")
+                .failureUrl("/login?error=true")
                 .permitAll()
-                .and().exceptionHandling().accessDeniedPage("/403");
+                .and()
+                .logout()
+                .logoutSuccessUrl("/login?logout=true")
+                .invalidateHttpSession(true)
+                .permitAll()
+                .and()
+                .csrf()
+                .disable();
+//                .and().exceptionHandling().accessDeniedPage("/403");
     }
 }

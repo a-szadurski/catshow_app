@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include file="admin/dashboard-menu.jsp" %>
+<%@ include file="dashboard-menu.jsp" %>
 
 <form:form method="post" modelAttribute="registerCatCmd">
     <br>
@@ -38,4 +38,4 @@
     <input type="submit">
 </form:form>
 
-<%@ include file="admin/dashboard-footer.jsp" %>
+<%@ include file="dashboard-footer.jsp" %>

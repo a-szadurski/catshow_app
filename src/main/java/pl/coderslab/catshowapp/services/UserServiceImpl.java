@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
         this.roleRepository = roleRepository;
     }
     @Override
-    public User findByUserName(String email) {
+    public User findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
     @Override
