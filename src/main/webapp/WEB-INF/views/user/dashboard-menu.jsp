@@ -1,9 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>CatShowApp Admin Panel</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -27,9 +28,6 @@
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
     <div class="w3-container w3-row">
-        <div class="w3-col s4">
-            <img src="/w3images/avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
-        </div>
         <div class="w3-col s8 w3-bar">
             <span>Welcome, <strong>Mike</strong></span><br>
             <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
@@ -44,15 +42,28 @@
     <div class="w3-bar-block">
         <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
            onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>&nbsp; Close Menu</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>&nbsp; Overview</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>&nbsp; Views</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>&nbsp; Traffic</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>&nbsp; Geo</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>&nbsp; Orders</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>&nbsp; News</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>&nbsp; General</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>&nbsp; History</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>&nbsp; Settings</a><br><br>
+        <a href='<c:url value="${pageContext.request.contextPath}/user/dashboard/shows/upcoming"/>' class="w3-bar-item w3-button w3-padding">
+            <i class="fa fa-fw"></i>&nbsp; Upcoming Shows</a>
+        <a href='<c:url value="${pageContext.request.contextPath}/user/dashboard/register/cat"/>' class="w3-bar-item w3-button w3-padding">
+            <i class="fa fa-fw"></i>&nbsp; Register a Cat</a>
+        <a href='<c:url value="${pageContext.request.contextPath}/user/dashboard/register/judge"/>' class="w3-bar-item w3-button w3-padding">
+            <i class="fa fa-fw"></i>&nbsp; Register a Judge</a>
+        <a href='<c:url value="${pageContext.request.contextPath}/user/dashboard/register/show"/>' class="w3-bar-item w3-button w3-padding">
+            <i class="fa fa-fw"></i>&nbsp; Register a Show</a>
+        <a href='<c:url value="${pageContext.request.contextPath}/user/dashboard/contestants/judges/assign"/>' class="w3-bar-item w3-button w3-padding">
+            <i class="fa fa-fw"></i>&nbsp; Assign Cats to Judges</a>
+        <a href='<c:url value="${pageContext.request.contextPath}/user/dashboard/contestants/judges/view"/>' class="w3-bar-item w3-button w3-padding">
+            <i class="fa fa-fw"></i>&nbsp; View Judges' Assigned Cats</a>
+
+        <a href='<c:url value="${pageContext.request.contextPath}/user/dashboard/contestants/rate"/>' class="w3-bar-item w3-button w3-padding">
+            <i class="fa fa-fw"></i>&nbsp; Rate Cats</a>
+        <sec:authorize access="hasAnyRole('ROLE_ADMIN')">
+            <a href='<c:url value="${pageContext.request.contextPath}/user/dashboard/users/add"/>' class="w3-bar-item w3-button w3-padding">
+                <i class="fa fa-fw"></i>&nbsp; Add Users</a>
+            <a href='<c:url value="${pageContext.request.contextPath}/user/dashboard/users/add"/>' class="w3-bar-item w3-button w3-padding">
+                <i class="fa fa-fw"></i>&nbsp; Edit Users</a>
+        </sec:authorize>
+<%--        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>&nbsp; Settings</a><br><br>--%>
     </div>
 </nav>
 
