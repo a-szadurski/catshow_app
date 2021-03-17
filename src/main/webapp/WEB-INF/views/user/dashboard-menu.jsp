@@ -60,6 +60,8 @@
             <i class="fa fa-fw"></i>&nbsp; Assign Cats to Judges</a>
         <a href='<c:url value="${pageContext.request.contextPath}/user/contestants/judges/view"/>' class="w3-bar-item w3-button w3-padding">
             <i class="fa fa-fw"></i>&nbsp; View Judges' Assigned Cats</a>
+        <a href='<c:url value="${pageContext.request.contextPath}/user/contestants/manage"/>' class="w3-bar-item w3-button w3-padding">
+            <i class="fa fa-fw"></i>&nbsp; Manage contestants</a>
 
         <a href='<c:url value="${pageContext.request.contextPath}/user/contestants/rate"/>' class="w3-bar-item w3-button w3-padding">
             <i class="fa fa-fw"></i>&nbsp; Rate Cats</a>

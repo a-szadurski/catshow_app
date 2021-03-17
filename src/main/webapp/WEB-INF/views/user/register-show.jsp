@@ -49,7 +49,7 @@
         </tr>
         <tr>
             <th colspan="2">
-                <input type="submit" value="Save">
+                <input type="submit" value="Save & assign dates (next step)">
             </th>
         </tr>
         </tbody>
