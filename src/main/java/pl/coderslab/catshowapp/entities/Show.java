@@ -23,6 +23,7 @@ public class Show {
     private String country;
     private String organizer;
     private boolean concluded;
+    private boolean published;
 
 
 }
