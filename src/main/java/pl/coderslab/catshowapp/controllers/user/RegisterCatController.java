@@ -1,4 +1,4 @@
-package pl.coderslab.catshowapp.controllers;
+package pl.coderslab.catshowapp.controllers.user;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,32 +14,20 @@ import pl.coderslab.catshowapp.repositories.ExhibitorRepository;
 import pl.coderslab.catshowapp.services.RegisterCatCmd;
 
 @Controller
-@RequestMapping("/user/dashboard")
-public class DashboardController {
+@RequestMapping("/user/register/cat")
+public class RegisterCatController {
 
-    private CatRepository catRepository;
-    private ExhibitorRepository exhibitorRepository;
-    private ContestantRepository contestantRepository;
+    CatRepository catRepository;
+    ExhibitorRepository exhibitorRepository;
+    ContestantRepository contestantRepository;
 
-    public DashboardController(CatRepository catRepository, ExhibitorRepository exhibitorRepository,
-                               ContestantRepository contestantRepository) {
-        this.catRepository = catRepository;
-        this.exhibitorRepository = exhibitorRepository;
-        this.contestantRepository = contestantRepository;
-    }
-
-    @GetMapping("/main")
-    public String dashboardMainDisplay() {
-        return "user/dashboard-main";
-    }
-
-    @GetMapping("/register/cat")
+    @GetMapping
     public String displayForm(Model model) {
         model.addAttribute(new RegisterCatCmd());
         return "user/user-register-cat";
     }
 
-    @PostMapping("/register/cat")
+    @PostMapping
     public String submitForm(RegisterCatCmd registerCatCmd) {
 
         Cat cat = catRepository.save(registerCatCmd.getCat());
