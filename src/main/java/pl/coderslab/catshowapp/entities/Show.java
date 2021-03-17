@@ -22,7 +22,9 @@ public class Show {
     private String city;
     private String country;
     private String organizer;
+    @Column(columnDefinition = "boolean default false")
     private boolean concluded;
+    @Column(columnDefinition = "boolean default false")
     private boolean published;
 
 

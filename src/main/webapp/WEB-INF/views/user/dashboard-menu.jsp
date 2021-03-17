@@ -35,7 +35,7 @@
             <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
             <sec:authorize access="isAuthenticated()">
                 <form action="<c:url value="/logout"/>" method="post">
-                    <input type="submit" value="Wyloguj">
+                    <input type="submit" value="Sign out">
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                 </form>
             </sec:authorize>
