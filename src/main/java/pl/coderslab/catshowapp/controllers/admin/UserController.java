@@ -1,4 +1,4 @@
-package pl.coderslab.catshowapp.controllers;
+package pl.coderslab.catshowapp.controllers.admin;
 
 import org.springframework.stereotype.Controller;
 import pl.coderslab.catshowapp.services.UserService;
