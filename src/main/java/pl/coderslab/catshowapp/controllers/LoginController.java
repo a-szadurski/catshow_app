@@ -22,7 +22,7 @@ public class LoginController {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
-            return "redirect:/user/dashboard/main";
+            return "redirect:/user/main";
         }
 
         String errorMessage = null;
