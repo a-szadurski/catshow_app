@@ -4,7 +4,7 @@
 <%@ include file="dashboard-menu.jsp" %>
 
 
-<form:form method="post" modelAttribute="registerJudgeDto">
+<form:form method="post" modelAttribute="judge">
     <br>
     <br>
     <br>
@@ -20,7 +20,7 @@
                 Email:
             </td>
             <td>
-                <form:input path="judge.email"/>
+                <form:input path="email"/>
             </td>
         </tr>
         <tr>
@@ -28,7 +28,7 @@
                 First name:
             </td>
             <td>
-                <form:input path="judge.firstName"/>
+                <form:input path="firstName"/>
             </td>
         </tr>
         <tr>
@@ -36,7 +36,7 @@
                 Last name:
             </td>
             <td>
-                <form:input path="judge.lastName"/>
+                <form:input path="lastName"/>
             </td>
         </tr>
         <tr>
@@ -44,7 +44,7 @@
                 Category 01:
             </td>
             <td>
-                <form:checkbox path="judge.category01"/>
+                <form:checkbox path="category01"/>
             </td>
         </tr>
         <tr>
@@ -52,7 +52,7 @@
                 Category 02:
             </td>
             <td>
-                <form:checkbox path="judge.category02"/>
+                <form:checkbox path="category02"/>
             </td>
         </tr>
         <tr>
@@ -60,7 +60,7 @@
                 Category 03:
             </td>
             <td>
-                <form:checkbox path="judge.category03"/>
+                <form:checkbox path="category03"/>
             </td>
         </tr>
         <tr>
@@ -68,7 +68,7 @@
                 Category 04:
             </td>
             <td>
-                <form:checkbox path="judge.category04"/>
+                <form:checkbox path="category04"/>
             </td>
         </tr>
         <tr>
