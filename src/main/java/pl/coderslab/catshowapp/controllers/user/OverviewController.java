@@ -23,11 +23,8 @@ public class OverviewController {
     @GetMapping
     public String dashboardMainDisplay(Model model) {
 
-        LocalDate today = LocalDate.now();
-
-        List<ShowDates> upcomingAllShowDates = showDatesRepository.findAllUpcomingShows(today);
-        List<ShowDates> pastAllShowDates = showDatesRepository.findAllPastShows(today);
-
+        List<ShowDates> upcomingAllShowDates = showDatesRepository.findAllUpcomingShows(LocalDate.now());
+        List<ShowDates> pastAllShowDates = showDatesRepository.findAllPastShows(LocalDate.now());
 
         model.addAttribute("upcomingAllShowDates", upcomingAllShowDates);
         model.addAttribute("pastAllShowDates", pastAllShowDates);

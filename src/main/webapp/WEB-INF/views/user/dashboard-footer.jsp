@@ -28,5 +28,8 @@
     }
 </script>
 
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/search-table.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/category-highlight.js"></script>
+
 </body>
 </html>

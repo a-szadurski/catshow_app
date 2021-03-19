@@ -44,11 +44,12 @@ public class RegisterCatController {
     }
 
     @GetMapping("/{id}")
-    public String formSuccess(Model model, @PathVariable Long id){
+    public String formSuccess(Model model, @PathVariable Long id) {
         Optional<Cat> optionalCat = catRepository.findById(id);
-        Cat cat = new Cat();
+        Cat cat;
 
-        if(optionalCat.isPresent()){
+        if (optionalCat.isPresent()) {
+            cat = optionalCat.get();
             model.addAttribute("cat", cat);
             return "user/cat-register-success";
         } else {

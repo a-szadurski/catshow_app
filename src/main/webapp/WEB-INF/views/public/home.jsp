@@ -24,7 +24,12 @@
                 <h4>${latestDate.date}</h4>
             </c:forEach>
 
-            <table class="w3-table-all">
+
+
+            <table class="w3-table-all" id="searchableTable" data-tableId="0">
+                <label for="tableInput">
+                    <input class="w3-input w3-animate-input" type="text" id="tableInput" onkeyup="searchTable()" placeholder="Search . . .">
+                </label>
                 <tbody>
                 <tr>
                     <th>KOT</th>
