@@ -11,7 +11,7 @@ import pl.coderslab.catshowapp.repositories.ExhibitorRepository;
 
 @Getter
 @Setter
-public class RegisterCatCmd {
+public class RegisterCatDto {
 
 
     private CatRepository catRepository;
