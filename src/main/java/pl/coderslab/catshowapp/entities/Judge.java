@@ -33,6 +33,6 @@ public class Judge {
     @Column(name = "category04")
     private boolean isCategory04;
 
-    @ManyToMany(mappedBy = "judge")
+    @ManyToMany(mappedBy = "judges")
     private Set<ShowDates> showDates;
 }
