@@ -20,6 +20,7 @@ public class Contestant {
     @Column(name = "contestant_id")
     private Long id;
     private String rating;
+    private Integer classification;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "show_dates_id")
