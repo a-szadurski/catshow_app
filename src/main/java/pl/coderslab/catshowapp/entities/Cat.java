@@ -25,7 +25,6 @@ public class Cat {
     private String name;
     private Character sex;
     private String ems;
-    private Integer classification;
     private String pedigree;
     private String breeder;
     private String mother;
