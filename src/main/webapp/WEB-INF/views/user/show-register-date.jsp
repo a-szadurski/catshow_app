@@ -53,7 +53,6 @@
             <th colspan="5">
                 <form:form method="post" modelAttribute="dateToAdd">
                     <form:input path="date" type="date"/>
-                    <form:hidden path="id" value="${showId}"/>
                     <input type="submit" value="Assign date">
                 </form:form>
             </th>

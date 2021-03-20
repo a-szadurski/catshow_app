@@ -51,13 +51,13 @@
         <a href='<c:url value="${pageContext.request.contextPath}/user/main"/>'
            class="w3-bar-item w3-button w3-padding">
             <i class="fa fa-fw"></i>&nbsp; Shows Overview</a>
-        <a href='<c:url value="${pageContext.request.contextPath}/user/register/cat"/>'
+        <a href='<c:url value="${pageContext.request.contextPath}/user/cat/register"/>'
            class="w3-bar-item w3-button w3-padding">
             <i class="fa fa-fw"></i>&nbsp; Register a Cat</a>
-        <a href='<c:url value="${pageContext.request.contextPath}/user/register/judge"/>'
+        <a href='<c:url value="${pageContext.request.contextPath}/user/judge/register"/>'
            class="w3-bar-item w3-button w3-padding">
             <i class="fa fa-fw"></i>&nbsp; Register a Judge</a>
-        <a href='<c:url value="${pageContext.request.contextPath}/user/register/show"/>'
+        <a href='<c:url value="${pageContext.request.contextPath}/user/show/register"/>'
            class="w3-bar-item w3-button w3-padding">
             <i class="fa fa-fw"></i>&nbsp; Register a Show</a>
         <a href='<c:url value="${pageContext.request.contextPath}/user/judge/assign/show"/>'

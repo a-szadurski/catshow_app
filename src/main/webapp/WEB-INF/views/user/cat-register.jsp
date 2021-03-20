@@ -3,7 +3,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="dashboard-menu.jsp" %>
 <div class="w3-container">
-    <form:form method="post" modelAttribute="registerCatDto">
+    <form:form method="post" modelAttribute="cat">
         <br>
         <br>
         <br>
@@ -19,7 +19,7 @@
                     Name of the cat:
                 </td>
                 <td>
-                    <form:input path="cat.name"/>
+                    <form:input path="name"/>
                 </td>
             </tr>
             <tr>
@@ -27,7 +27,7 @@
                     Cat's sex:
                 </td>
                 <td>
-                    <form:input path="cat.sex"/>
+                    <form:input path="sex"/>
                 </td>
             </tr>
             <tr>
@@ -35,7 +35,7 @@
                     Full EMS code:
                 </td>
                 <td>
-                    <form:input path="cat.ems"/>
+                    <form:input path="ems"/>
                 </td>
             </tr>
             <tr>
@@ -43,7 +43,7 @@
                     Pedigree number:
                 </td>
                 <td>
-                    <form:input path="cat.pedigree"/>
+                    <form:input path="pedigree"/>
                 </td>
             </tr>
             <tr>
@@ -51,7 +51,7 @@
                     Breeder:
                 </td>
                 <td>
-                    <form:input path="cat.breeder"/>
+                    <form:input path="breeder"/>
                 </td>
             </tr>
             <tr>
@@ -59,7 +59,7 @@
                     Cat's mother:
                 </td>
                 <td>
-                    <form:input path="cat.mother"/>
+                    <form:input path="mother"/>
                 </td>
             </tr>
             <tr>
@@ -67,47 +67,15 @@
                     Cat's father:
                 </td>
                 <td>
-                    <form:input path="cat.father"/>
-                </td>
-            </tr>
-                <%--        <tr>--%>
-                <%--            <td>--%>
-                <%--                Cat's date of birth:--%>
-                <%--            </td>--%>
-                <%--            <td>--%>
-                <%--                <form:input type="date" path="cat.birthDate"/>--%>
-                <%--            </td>--%>
-                <%--        </tr>--%>
-            <tr>
-                <td>
-                    Exhibitor's first name:
-                </td>
-                <td>
-                    <form:input path="exhibitor.firstName"/>
+                    <form:input path="father"/>
                 </td>
             </tr>
             <tr>
                 <td>
-                    Exhibitor's last name:
+                    Cat's date of birth:
                 </td>
                 <td>
-                    <form:input path="exhibitor.lastName"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Exhibitor's email:
-                </td>
-                <td>
-                    <form:input path="exhibitor.email"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Exhibitor's phone number:
-                </td>
-                <td>
-                    <form:input path="exhibitor.phone"/>
+                    <form:input type="date" path="birthDate"/>
                 </td>
             </tr>
             <tr>
@@ -118,6 +86,56 @@
             </tbody>
         </table>
     </form:form>
+</div>
+
+<div class="w3-container">
+    <br>
+    <br>
+    <br>
+    <table id="searchableTable" class="w3-table-all">
+        <label for="tableInput">
+            <input class="w3-input w3-animate-input" type="text" id="tableInput" onkeyup="searchTable()"
+                   placeholder="Search . . .">
+        </label>
+        <tbody>
+        <tr>
+            <th colspan="10">REGISTERED CATS (DESC)</th>
+        </tr>
+        <tr>
+            <th></th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Sex</th>
+            <th>EMS</th>
+            <th>Pedigree</th>
+            <th>Breeder</th>
+            <th>Mother</th>
+            <th>Date of Birth</th>
+            <th></th>
+        </tr>
+        <c:forEach items="${catsList}" var="catsList">
+
+            <tr>
+                <td>
+                    <a href='<c:url value="${pageContext.request.contextPath}/user/cat/assign/show/${catsList.id}"/>'>
+                        <button class="w3-button w3-border w3-padding-small">Assign to Show</button>
+                    </a>
+
+                </td>
+                <td>${catsList.id}</td>
+                <td>${catsList.name}</td>
+                <td>${catsList.sex}</td>
+                <td>${catsList.ems}</td>
+                <td>${catsList.pedigree}</td>
+                <td>${catsList.breeder}</td>
+                <td>${catsList.mother}</td>
+                <td>${catsList.father}</td>
+                <td>${catsList.birthDate}</td>
+            </tr>
+
+        </c:forEach>
+        </tbody>
+    </table>
 </div>
 
 <%@ include file="dashboard-footer.jsp" %>

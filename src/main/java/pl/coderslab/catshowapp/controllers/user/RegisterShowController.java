@@ -16,11 +16,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("user/register/show")
+@RequestMapping("user/show/register")
 public class RegisterShowController {
 
-    private ShowRepository showRepository;
-    private ShowDatesRepository showDatesRepository;
+    private final ShowRepository showRepository;
+    private final ShowDatesRepository showDatesRepository;
 
     public RegisterShowController(ShowRepository showRepository, ShowDatesRepository showDatesRepository) {
         this.showRepository = showRepository;
@@ -29,18 +29,21 @@ public class RegisterShowController {
 
     @GetMapping
     public String displayForm(Model model) {
+
         model.addAttribute("show", new Show());
         return "user/show-register";
     }
 
     @PostMapping
     public String saveShow(Show show) {
+
         Show savedShow = showRepository.save(show);
-        return "redirect:/user/register/show/" + savedShow.getId();
+        return "redirect:/user/show/register/" + savedShow.getId();
     }
 
     @GetMapping("/{id}")
     public String assignDatesToShowDisplay(Model model, @PathVariable Long id) {
+
         Optional<Show> show = showRepository.findById(id);
         Show foundShow = new Show();
         int dateSum = 0;
@@ -62,9 +65,20 @@ public class RegisterShowController {
     }
 
     @PostMapping("/{id}")
-    public String assignDatesToShowAdd(@PathVariable Long id, ShowDates showDates) {
+    public String assignDatesToShowExecute(Model model, @PathVariable Long id, ShowDates showDates) {
 
-        showDatesRepository.save(showDates);
-        return "redirect:/user/register/show/" + id;
+        Optional<Show> optionalShow = showRepository.findById(id);
+        Show show;
+
+        if (optionalShow.isPresent()) {
+            show = optionalShow.get();
+            showDates.setShow(show);
+            showDatesRepository.save(showDates);
+            return "redirect:/user/show/register/" + id;
+        } else {
+            model.addAttribute("objectType", "SHOW DATE");
+            return "user/dahboard-save-error";
+        }
+
     }
 }

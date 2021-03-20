@@ -14,10 +14,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/user/register/judge")
+@RequestMapping("/user/judge/register")
 public class RegisterJudgeController {
 
-    private JudgeRepository judgeRepository;
+    private final JudgeRepository judgeRepository;
 
     public RegisterJudgeController(JudgeRepository judgeRepository) {
         this.judgeRepository = judgeRepository;
@@ -30,23 +30,24 @@ public class RegisterJudgeController {
 
         model.addAttribute("judge", new Judge());
         model.addAttribute("judgesList", judgeList);
+
         return "user/judge-register";
     }
 
     @PostMapping
     public String saveJudge(Judge judge) {
+
         judgeRepository.save(judge);
-        return "redirect:/user/register/judge/" + judge.getId();
+
+        return "redirect:/user/judge/register" + judge.getId();
     }
 
     @GetMapping("/{id}")
     public String formSuccess(Model model, @PathVariable Long id) {
         Optional<Judge> optionalJudge = judgeRepository.findById(id);
-        Judge judge = new Judge();
 
         if (optionalJudge.isPresent()) {
-            model.addAttribute("judge", judge);
-            return "redirect:/user/register/judge";
+            return "redirect:/user/judge/register";
         } else {
             model.addAttribute("objectType", "JUDGE");
             return "user/dahboard-save-error";
