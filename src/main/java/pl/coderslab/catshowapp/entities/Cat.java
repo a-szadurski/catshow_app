@@ -1,6 +1,7 @@
 package pl.coderslab.catshowapp.entities;
 
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -13,6 +14,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @ToString
+@EqualsAndHashCode
 public class Cat {
 
     @Id

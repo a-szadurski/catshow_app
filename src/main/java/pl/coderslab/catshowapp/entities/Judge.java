@@ -1,15 +1,18 @@
 package pl.coderslab.catshowapp.entities;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Getter
 @Setter
 @ToString
+@EqualsAndHashCode
 public class Judge {
 
     @Id
@@ -29,4 +32,7 @@ public class Judge {
     private boolean isCategory03;
     @Column(name = "category04")
     private boolean isCategory04;
+
+    @ManyToMany(mappedBy = "judges")
+    private Set<ShowDates> showDates;
 }

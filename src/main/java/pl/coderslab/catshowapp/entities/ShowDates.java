@@ -1,18 +1,20 @@
 package pl.coderslab.catshowapp.entities;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "show_dates")
 @Getter
 @Setter
 @ToString
+@EqualsAndHashCode
 public class ShowDates {
 
     @Id
@@ -26,11 +28,11 @@ public class ShowDates {
     @JoinColumn(name = "show_id")
     private Show show;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(
             name = "shows_judges",
             joinColumns = @JoinColumn(name = "show_dates_id"),
             inverseJoinColumns = @JoinColumn(name = "judge_id")
     )
-    private List<Judge> judges;
+    private Set<Judge> judges;
 }

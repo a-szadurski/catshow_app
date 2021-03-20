@@ -7,6 +7,7 @@ import pl.coderslab.catshowapp.entities.ShowDates;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 public interface ShowDatesRepository extends JpaRepository<ShowDates, Long> {
 
@@ -30,4 +31,7 @@ public interface ShowDatesRepository extends JpaRepository<ShowDates, Long> {
     int countShowDatesByShow(Show show);
 
     List<ShowDates> findShowDatesByShow(Show show);
+
+    Optional<ShowDates> findShowDatesById(Long id);
+
 }

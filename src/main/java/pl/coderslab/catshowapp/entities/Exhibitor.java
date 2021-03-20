@@ -1,7 +1,9 @@
 package pl.coderslab.catshowapp.entities;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -9,6 +11,8 @@ import javax.persistence.*;
 @Table(name = "exhibitors")
 @Getter
 @Setter
+@ToString
+@EqualsAndHashCode
 public class Exhibitor {
 
     @Id

@@ -1,5 +1,6 @@
 package pl.coderslab.catshowapp.entities;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -11,6 +12,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @ToString
+@EqualsAndHashCode
 public class Role {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
