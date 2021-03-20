@@ -30,7 +30,7 @@ public class RegisterShowController {
     @GetMapping
     public String displayForm(Model model) {
         model.addAttribute("show", new Show());
-        return "user/register-show";
+        return "user/show-register";
     }
 
     @PostMapping
@@ -58,7 +58,7 @@ public class RegisterShowController {
         model.addAttribute("dateSum", dateSum);
         model.addAttribute("dates", showDates);
         model.addAttribute("dateToAdd", new ShowDates());
-        return "user/register-show-date";
+        return "user/show-register-date";
     }
 
     @PostMapping("/{id}")

@@ -27,7 +27,7 @@ public class RegisterCatController {
     @GetMapping
     public String displayForm(Model model) {
         model.addAttribute(new RegisterCatDto());
-        return "user/user-register-cat";
+        return "user/cat-register";
     }
 
     @PostMapping

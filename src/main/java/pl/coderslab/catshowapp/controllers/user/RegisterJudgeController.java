@@ -1,5 +1,6 @@
 package pl.coderslab.catshowapp.controllers.user;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.catshowapp.entities.Judge;
 import pl.coderslab.catshowapp.repositories.JudgeRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -24,8 +26,11 @@ public class RegisterJudgeController {
     @GetMapping
     public String displayForm(Model model) {
 
+        List<Judge> judgeList = judgeRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
+
         model.addAttribute("judge", new Judge());
-        return "user/register-judge";
+        model.addAttribute("judgesList", judgeList);
+        return "user/judge-register";
     }
 
     @PostMapping
@@ -41,7 +46,7 @@ public class RegisterJudgeController {
 
         if (optionalJudge.isPresent()) {
             model.addAttribute("judge", judge);
-            return "user/judge-register-success";
+            return "redirect:/user/register/judge";
         } else {
             model.addAttribute("objectType", "JUDGE");
             return "user/dahboard-save-error";

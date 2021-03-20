@@ -13,8 +13,9 @@ function searchTable() {
         const tds = trs[i].getElementsByTagName("td");
 
         // hide the row
-        trs[i].style.display = "none";
-
+        if(tds.length > 0) {
+            trs[i].style.display = "none";
+        }
         // loop through row cells
         for (let i2 = 0; i2 < tds.length; i2++) {
 
