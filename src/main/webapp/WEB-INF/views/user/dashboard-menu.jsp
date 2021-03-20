@@ -29,7 +29,7 @@
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left w3-black" style="z-index:3;width:300px;" id="mySidebar"><br>
     <div class="w3-container w3-row">
         <div class="w3-col s8 w3-bar">
-            <span>Welcome, <strong><sec:authentication property="principal.username" /></strong></span><br>
+            <span>Welcome, <strong><sec:authentication property="principal.username"/></strong></span><br>
             <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
             <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
             <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
@@ -48,32 +48,43 @@
     <div class="w3-bar-block">
         <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
            onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>&nbsp; Close Menu</a>
-        <a href='<c:url value="${pageContext.request.contextPath}/user/main"/>' class="w3-bar-item w3-button w3-padding">
+        <a href='<c:url value="${pageContext.request.contextPath}/user/main"/>'
+           class="w3-bar-item w3-button w3-padding">
             <i class="fa fa-fw"></i>&nbsp; Shows Overview</a>
-        <a href='<c:url value="${pageContext.request.contextPath}/user/register/cat"/>' class="w3-bar-item w3-button w3-padding">
+        <a href='<c:url value="${pageContext.request.contextPath}/user/register/cat"/>'
+           class="w3-bar-item w3-button w3-padding">
             <i class="fa fa-fw"></i>&nbsp; Register a Cat</a>
-        <a href='<c:url value="${pageContext.request.contextPath}/user/register/judge"/>' class="w3-bar-item w3-button w3-padding">
+        <a href='<c:url value="${pageContext.request.contextPath}/user/register/judge"/>'
+           class="w3-bar-item w3-button w3-padding">
             <i class="fa fa-fw"></i>&nbsp; Register a Judge</a>
-        <a href='<c:url value="${pageContext.request.contextPath}/user/register/show"/>' class="w3-bar-item w3-button w3-padding">
+        <a href='<c:url value="${pageContext.request.contextPath}/user/register/show"/>'
+           class="w3-bar-item w3-button w3-padding">
             <i class="fa fa-fw"></i>&nbsp; Register a Show</a>
-        <a href='<c:url value="${pageContext.request.contextPath}/user/judge/assign/show"/>' class="w3-bar-item w3-button w3-padding">
+        <a href='<c:url value="${pageContext.request.contextPath}/user/judge/assign/show"/>'
+           class="w3-bar-item w3-button w3-padding">
             <i class="fa fa-fw"></i>&nbsp; Assign Judges to Shows</a>
-        <a href='<c:url value="${pageContext.request.contextPath}/user/contestants/judges/assign"/>' class="w3-bar-item w3-button w3-padding">
+        <a href='<c:url value="${pageContext.request.contextPath}/user/contestants/judges/assign"/>'
+           class="w3-bar-item w3-button w3-padding">
             <i class="fa fa-fw"></i>&nbsp; Assign Cats to Judges</a>
-        <a href='<c:url value="${pageContext.request.contextPath}/user/contestants/judges/view"/>' class="w3-bar-item w3-button w3-padding">
+        <a href='<c:url value="${pageContext.request.contextPath}/user/contestants/judges/view"/>'
+           class="w3-bar-item w3-button w3-padding">
             <i class="fa fa-fw"></i>&nbsp; View Judges' Assigned Cats</a>
-        <a href='<c:url value="${pageContext.request.contextPath}/user/contestants/manage"/>' class="w3-bar-item w3-button w3-padding">
+        <a href='<c:url value="${pageContext.request.contextPath}/user/contestants/manage"/>'
+           class="w3-bar-item w3-button w3-padding">
             <i class="fa fa-fw"></i>&nbsp; Manage contestants</a>
 
-        <a href='<c:url value="${pageContext.request.contextPath}/user/contestants/rate"/>' class="w3-bar-item w3-button w3-padding">
+        <a href='<c:url value="${pageContext.request.contextPath}/user/contestants/rate"/>'
+           class="w3-bar-item w3-button w3-padding">
             <i class="fa fa-fw"></i>&nbsp; Rate Cats</a>
         <sec:authorize access="hasAnyRole('ROLE_ADMIN')">
-            <a href='<c:url value="${pageContext.request.contextPath}/admin/users/add"/>' class="w3-bar-item w3-button w3-padding">
+            <a href='<c:url value="${pageContext.request.contextPath}/admin/users/add"/>'
+               class="w3-bar-item w3-button w3-padding">
                 <i class="fa fa-fw"></i>&nbsp; Add Users</a>
-            <a href='<c:url value="${pageContext.request.contextPath}/admin/users/add"/>' class="w3-bar-item w3-button w3-padding">
+            <a href='<c:url value="${pageContext.request.contextPath}/admin/users/add"/>'
+               class="w3-bar-item w3-button w3-padding">
                 <i class="fa fa-fw"></i>&nbsp; Edit Users</a>
         </sec:authorize>
-<%--        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>&nbsp; Settings</a><br><br>--%>
+        <%--        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>&nbsp; Settings</a><br><br>--%>
     </div>
 </nav>
 

@@ -13,7 +13,7 @@ function searchTable() {
         const tds = trs[i].getElementsByTagName("td");
 
         // hide the row
-        if(tds.length > 0) {
+        if (tds.length > 0) {
             trs[i].style.display = "none";
         }
         // loop through row cells
