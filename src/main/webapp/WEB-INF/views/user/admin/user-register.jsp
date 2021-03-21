@@ -1,9 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ page contentType="text/html;charset=UTF-8" %>
-<%@ include file="dashboard-menu.jsp" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ include file="/WEB-INF/views/user/dashboard-menu.jsp" %>
+
 <div class="w3-container">
-    <form:form method="post" modelAttribute="cat">
+    <form:form method="post" modelAttribute="judge">
         <br>
         <br>
         <br>
@@ -11,76 +12,68 @@
             <tbody>
             <tr>
                 <th colspan="2">
-                    Register a Cat
+                    Register a Judge
                 </th>
             </tr>
             <tr>
                 <td>
-                    Name of the cat:
+                    Email:
                 </td>
                 <td>
-                    <form:input path="name"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Cat's sex:
-                </td>
-                <td>
-                    <form:input path="sex"/>
+                    <form:input path="email"/>
                 </td>
             </tr>
             <tr>
                 <td>
-                    Full EMS code:
+                    First name:
                 </td>
                 <td>
-                    <form:input path="ems"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Pedigree number:
-                </td>
-                <td>
-                    <form:input path="pedigree"/>
+                    <form:input path="firstName"/>
                 </td>
             </tr>
             <tr>
                 <td>
-                    Breeder:
+                    Last name:
                 </td>
                 <td>
-                    <form:input path="breeder"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Cat's mother:
-                </td>
-                <td>
-                    <form:input path="mother"/>
+                    <form:input path="lastName"/>
                 </td>
             </tr>
             <tr>
                 <td>
-                    Cat's father:
+                    Category 01:
                 </td>
                 <td>
-                    <form:input path="father"/>
+                    <form:checkbox path="category01"/>
                 </td>
             </tr>
             <tr>
                 <td>
-                    Cat's date of birth:
+                    Category 02:
                 </td>
                 <td>
-                    <form:input type="date" path="birthDate"/>
+                    <form:checkbox path="category02"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Category 03:
+                </td>
+                <td>
+                    <form:checkbox path="category03"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Category 04:
+                </td>
+                <td>
+                    <form:checkbox path="category04"/>
                 </td>
             </tr>
             <tr>
                 <th colspan="2">
-                    <input type="submit">
+                    <input type="submit" value="Save">
                 </th>
             </tr>
             </tbody>
@@ -99,44 +92,40 @@
         </label>
         <tbody>
         <tr>
-            <th colspan="10">REGISTERED CATS (DESC)</th>
+            <th colspan="11">REGISTERED JUDGES (DESC)</th>
         </tr>
         <tr>
             <th></th>
             <th>Id</th>
-            <th>Name</th>
-            <th>Sex</th>
-            <th>EMS</th>
-            <th>Pedigree</th>
-            <th>Breeder</th>
-            <th>Mother</th>
-            <th>Father</th>
-            <th>Date of Birth</th>
-            <th></th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Category 01</th>
+            <th>Category 02</th>
+            <th>Category 03</th>
+            <th>Category 04</th>
+            <th>Email</th>
         </tr>
-        <c:forEach items="${catsList}" var="catsList">
+        <c:forEach items="${judgesList}" var="judgesList">
 
             <tr>
                 <td>
-                    <a href='<c:url value="${pageContext.request.contextPath}/user/cat/assign/show/${catsList.id}"/>'>
+                    <a href='<c:url value="${pageContext.request.contextPath}/user/judge/assign/show/${judgesList.id}"/>'>
                         <button class="w3-button w3-border w3-padding-small">Assign to Show</button>
                     </a>
 
                 </td>
-                <td>${catsList.id}</td>
-                <td>${catsList.name}</td>
-                <td>${catsList.sex}</td>
-                <td>${catsList.ems}</td>
-                <td>${catsList.pedigree}</td>
-                <td>${catsList.breeder}</td>
-                <td>${catsList.mother}</td>
-                <td>${catsList.father}</td>
-                <td>${catsList.birthDate}</td>
+                <td>${judgesList.id}</td>
+                <td>${judgesList.firstName}</td>
+                <td>${judgesList.lastName}</td>
+                <td><span>${judgesList.category01}</span></td>
+                <td><span>${judgesList.category02}</span></td>
+                <td><span>${judgesList.category03}</span></td>
+                <td><span>${judgesList.category04}</span></td>
+                <td>${judgesList.email}</td>
             </tr>
 
         </c:forEach>
         </tbody>
     </table>
 </div>
-
-<%@ include file="dashboard-footer.jsp" %>
+<%@ include file="/WEB-INF/views/user/dashboard-footer.jsp" %>
