@@ -57,5 +57,24 @@
         </div>
     </div>
 </section>
+<script type="text/javascript">
+    function validate() {
+        if (document.login.username.value === "" && document.login.password.value === "") {
+            alert("Username and password are required");
+            document.login.username.focus();
+            return false;
+        }
+        if (document.login.username.value === "") {
+            alert("Username is required");
+            document.login.username.focus();
+            return false;
+        }
+        if (document.login.password.value === "") {
+            alert("Password is required");
+            document.login.password.focus();
+            return false;
+        }
+    }
+</script>
 </body>
 </html>

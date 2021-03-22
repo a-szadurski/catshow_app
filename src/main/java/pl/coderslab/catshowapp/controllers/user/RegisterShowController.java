@@ -45,22 +45,23 @@ public class RegisterShowController {
     public String assignDatesToShowDisplay(Model model, @PathVariable Long id) {
 
         Optional<Show> show = showRepository.findById(id);
-        Show foundShow = new Show();
-        int dateSum = 0;
-        List<ShowDates> showDates = new ArrayList<>();
+        Show foundShow;
+        int dateSum;
+        List<ShowDates> showDatesList;
 
 
         if (show.isPresent()) {
+
             foundShow = show.get();
             dateSum = showDatesRepository.countShowDatesByShow(foundShow);
-            showDates = showDatesRepository.findShowDatesByShow(foundShow);
-            model.addAttribute("showId", id);
-        }
+            showDatesList = showDatesRepository.findShowDatesByShow(foundShow);
 
-        model.addAttribute("show", foundShow);
-        model.addAttribute("dateSum", dateSum);
-        model.addAttribute("dates", showDates);
-        model.addAttribute("dateToAdd", new ShowDates());
+            model.addAttribute("show", foundShow);
+            model.addAttribute("dateSum", dateSum);
+            model.addAttribute("dates", showDatesList);
+            model.addAttribute("dateToAdd", new ShowDates());
+            return "user/show-register-date";
+        }
         return "user/show-register-date";
     }
 
@@ -71,8 +72,10 @@ public class RegisterShowController {
         Show show;
 
         if (optionalShow.isPresent()) {
+            System.out.println(showDates);
             show = optionalShow.get();
             showDates.setShow(show);
+            showDates.setId(null);
             showDatesRepository.save(showDates);
             return "redirect:/user/show/register/" + id;
         } else {

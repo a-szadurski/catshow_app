@@ -110,6 +110,7 @@
             <th>Pedigree</th>
             <th>Breeder</th>
             <th>Mother</th>
+            <th>Father</th>
             <th>Date of Birth</th>
             <th></th>
         </tr>

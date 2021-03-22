@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%@ include file="dashboard-menu.jsp" %>
 
 <br>
@@ -57,10 +57,10 @@
                 </form:form>
             </th>
         </tr>
-        <c:forEach items="${dates}" var="date">
+        <c:forEach items="${dates}" var="addedDates">
             <tr>
                 <td>
-                        ${date.date}
+                        ${addedDates.date}
                 </td>
             </tr>
         </c:forEach>
