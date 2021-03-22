@@ -1,18 +1,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="/WEB-INF/views/user/dashboard-menu.jsp" %>
 
 <div class="w3-container">
-    <form:form method="post" modelAttribute="judge">
+    <form:form method="post" modelAttribute="user">
         <br>
         <br>
         <br>
         <table class="w3-table-all w3-third">
             <tbody>
             <tr>
-                <th colspan="2">
-                    Register a Judge
+                <th colspan="3">
+                    Register a User
                 </th>
             </tr>
             <tr>
@@ -22,6 +22,7 @@
                 <td>
                     <form:input path="email"/>
                 </td>
+                <td><form:errors path="email" cssClass="w3-text-red"/></td>
             </tr>
             <tr>
                 <td>
@@ -30,6 +31,8 @@
                 <td>
                     <form:input path="firstName"/>
                 </td>
+                <td><form:errors path="firstName" cssClass="w3-text-red"/></td>
+
             </tr>
             <tr>
                 <td>
@@ -38,41 +41,30 @@
                 <td>
                     <form:input path="lastName"/>
                 </td>
+                <td><form:errors path="lastName" cssClass="w3-text-red"/></td>
+
             </tr>
             <tr>
                 <td>
-                    Category 01:
+                    Password:
                 </td>
                 <td>
-                    <form:checkbox path="category01"/>
+                    <form:password path="password"/>
                 </td>
+                <td><form:errors path="password" cssClass="w3-text-red"/></td>
             </tr>
             <tr>
                 <td>
-                    Category 02:
+                    Confirm password:
                 </td>
                 <td>
-                    <form:checkbox path="category02"/>
+                    <form:password path="matchingPassword"/>
                 </td>
+                <td><form:errors path="matchingPassword" cssClass="w3-text-red"/></td>
+
             </tr>
             <tr>
-                <td>
-                    Category 03:
-                </td>
-                <td>
-                    <form:checkbox path="category03"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Category 04:
-                </td>
-                <td>
-                    <form:checkbox path="category04"/>
-                </td>
-            </tr>
-            <tr>
-                <th colspan="2">
+                <th colspan="3">
                     <input type="submit" value="Save">
                 </th>
             </tr>
@@ -92,36 +84,31 @@
         </label>
         <tbody>
         <tr>
-            <th colspan="11">REGISTERED JUDGES (DESC)</th>
+            <th colspan="11">REGISTERED USERS (DESC)</th>
         </tr>
         <tr>
-            <th></th>
             <th>Id</th>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Category 01</th>
-            <th>Category 02</th>
-            <th>Category 03</th>
-            <th>Category 04</th>
             <th>Email</th>
+            <th>Enabled</th>
+            <th>Role</th>
+            <th></th>
         </tr>
-        <c:forEach items="${judgesList}" var="judgesList">
+        <c:forEach items="${usersList}" var="usersList">
 
             <tr>
+                <td>${usersList.id}</td>
+                <td>${usersList.firstName}</td>
+                <td>${usersList.lastName}</td>
+                <td>${usersList.email}</td>
+                <td>${usersList.enabled}</td>
+                <td><c:forEach items="${usersList.roles}" var="roles">${roles.name}</c:forEach></td>
                 <td>
-                    <a href='<c:url value="${pageContext.request.contextPath}/user/judge/assign/show/${judgesList.id}"/>'>
-                        <button class="w3-button w3-border w3-padding-small">Assign to Show</button>
+                    <a href='<c:url value="${pageContext.request.contextPath}/admin/user/edit/${usersList.id}"/>'>
+                        <button class="w3-button w3-border w3-padding-small">Edit</button>
                     </a>
-
                 </td>
-                <td>${judgesList.id}</td>
-                <td>${judgesList.firstName}</td>
-                <td>${judgesList.lastName}</td>
-                <td><span>${judgesList.category01}</span></td>
-                <td><span>${judgesList.category02}</span></td>
-                <td><span>${judgesList.category03}</span></td>
-                <td><span>${judgesList.category04}</span></td>
-                <td>${judgesList.email}</td>
             </tr>
 
         </c:forEach>

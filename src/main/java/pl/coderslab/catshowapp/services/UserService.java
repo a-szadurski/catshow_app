@@ -9,7 +9,7 @@ public interface UserService {
 
     User findByEmail(String email);
 
-    void saveUser(User user);
+    void saveUser(UserDto userDto);
 
     List<User> findAll(Sort sort);
 }
