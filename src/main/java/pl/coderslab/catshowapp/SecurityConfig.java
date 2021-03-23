@@ -39,9 +39,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/login?logout=true")
                 .invalidateHttpSession(true)
                 .permitAll()
+                .and().exceptionHandling().accessDeniedPage("/403")
                 .and()
                 .csrf()
                 .disable();
-//                .and().exceptionHandling().accessDeniedPage("/403");
     }
 }
