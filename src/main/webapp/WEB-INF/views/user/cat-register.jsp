@@ -112,7 +112,6 @@
             <th>Mother</th>
             <th>Father</th>
             <th>Date of Birth</th>
-            <th></th>
         </tr>
         <c:forEach items="${catsList}" var="catsList">
 

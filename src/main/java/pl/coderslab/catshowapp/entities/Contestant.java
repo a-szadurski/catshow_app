@@ -1,11 +1,13 @@
 package pl.coderslab.catshowapp.entities;
 
+import com.sun.istack.NotNull;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "contestants")
@@ -19,7 +21,12 @@ public class Contestant {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "contestant_id")
     private Long id;
+
+    @NotNull
+    @Size(min=1, max=100)
     private String rating;
+
+    @NotNull
     private Integer classification;
 
     @ManyToOne(fetch = FetchType.EAGER)
