@@ -1,15 +1,13 @@
 package pl.coderslab.catshowapp.entities;
 
 
-import com.sun.istack.NotNull;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 
 @Entity
@@ -27,36 +25,39 @@ public class Cat {
 
     @Column(name = "cat_name")
     @NotNull
-    @Size(min=1, max=100)
+
+    @Size(min = 1, max = 100)
     private String name;
 
     @NotNull
-    @Size(min=1, max=1)
-    private Character sex;
+    @NotEmpty
+    @Size(min = 1, max = 1)
+    @Pattern(regexp = "F|M")
+    private String sex;
 
     @NotNull
-    @Size(min=3, max = 50)
+    @Size(min = 3, max = 50)
     private String ems;
 
     @NotNull
-    @Size(min=1, max=50)
+    @Size(min = 1, max = 50)
     private String pedigree;
 
     @NotNull
-    @Size(min=1, max=100)
+    @Size(min = 1, max = 100)
     private String breeder;
 
     @NotNull
-    @Size(min=1, max=100)
+    @Size(min = 1, max = 100)
     private String mother;
 
     @NotNull
-    @Size(min=1, max=100)
+    @Size(min = 1, max = 100)
     private String father;
 
     @Column(name = "birth_date")
     @NotNull
-    @NotEmpty
+    @Past
     private LocalDate birthDate;
 
 
