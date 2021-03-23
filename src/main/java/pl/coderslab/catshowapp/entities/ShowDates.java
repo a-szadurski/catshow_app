@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.Set;
 
@@ -21,7 +22,9 @@ public class ShowDates {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "show_date_id")
     private Long id;
+
     @Column(name = "date")
+    @NotNull
     private LocalDate date;
 
     @ManyToOne(fetch = FetchType.EAGER)
