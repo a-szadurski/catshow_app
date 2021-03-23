@@ -36,7 +36,7 @@ public class UserController {
     @PostMapping
     public String registerUser(Model model, @Valid @ModelAttribute("user") UserDto userDto, BindingResult result) {
 
-        if(result.hasErrors()){
+        if (result.hasErrors()) {
             model.addAttribute("usersList", userService.findAll(Sort.by(Sort.Direction.DESC, "id")));
             return "user/admin/user-register";
         }

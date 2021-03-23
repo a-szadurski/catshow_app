@@ -11,7 +11,6 @@ import pl.coderslab.catshowapp.entities.ShowDates;
 import pl.coderslab.catshowapp.repositories.ShowDatesRepository;
 import pl.coderslab.catshowapp.repositories.ShowRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
