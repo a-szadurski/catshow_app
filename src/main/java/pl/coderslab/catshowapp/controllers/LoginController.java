@@ -1,5 +1,7 @@
 package pl.coderslab.catshowapp.controllers;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -20,9 +22,15 @@ public class LoginController {
                             @RequestParam(value = "logout", required = false) String logout,
                             Model model) {
 
+        final Logger logger
+                = LoggerFactory.getLogger(LoginController.class);
+        final String redirect = "redirect:/user/main";
+
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
-            return "redirect:/user/main";
+
+            logger.debug("Already logged in, redirecting to: " + redirect);
+            return redirect;
         }
 
         String errorMessage = null;

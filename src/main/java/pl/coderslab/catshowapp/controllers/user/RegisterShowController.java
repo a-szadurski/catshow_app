@@ -2,17 +2,14 @@ package pl.coderslab.catshowapp.controllers.user;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import pl.coderslab.catshowapp.entities.Show;
 import pl.coderslab.catshowapp.entities.ShowDates;
 import pl.coderslab.catshowapp.repositories.ShowDatesRepository;
 import pl.coderslab.catshowapp.repositories.ShowRepository;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
@@ -35,7 +32,11 @@ public class RegisterShowController {
     }
 
     @PostMapping
-    public String saveShow(Show show) {
+    public String saveShow(@Valid Show show, BindingResult result) {
+
+        if (result.hasErrors()) {
+            return "user/show-register";
+        }
 
         Show savedShow = showRepository.save(show);
         return "redirect:/user/show/register/" + savedShow.getId();
@@ -45,20 +46,11 @@ public class RegisterShowController {
     public String assignDatesToShowDisplay(Model model, @PathVariable Long id) {
 
         Optional<Show> show = showRepository.findById(id);
-        Show foundShow;
-        int dateSum;
-        List<ShowDates> showDatesList;
-
 
         if (show.isPresent()) {
-
-            foundShow = show.get();
-            dateSum = showDatesRepository.countShowDatesByShow(foundShow);
-            showDatesList = showDatesRepository.findShowDatesByShow(foundShow);
-
-            model.addAttribute("show", foundShow);
-            model.addAttribute("dateSum", dateSum);
-            model.addAttribute("dates", showDatesList);
+            model.addAttribute("show", show.get());
+            model.addAttribute("dateSum", showDatesRepository.countShowDatesByShow(show.get()));
+            model.addAttribute("dates", showDatesRepository.findShowDatesByShow(show.get()));
             model.addAttribute("dateToAdd", new ShowDates());
             return "user/show-register-date";
         }
@@ -66,7 +58,19 @@ public class RegisterShowController {
     }
 
     @PostMapping("/{id}")
-    public String assignDatesToShowExecute(Model model, @PathVariable Long id, ShowDates showDates) {
+    public String assignDatesToShowExecute(Model model, @PathVariable Long id,
+                                           @Valid @ModelAttribute("dateToAdd") ShowDates showDates,
+                                           BindingResult result) {
+
+        if (result.hasErrors()) {
+            Optional<Show> show = showRepository.findById(id);
+            if (show.isPresent()) {
+                model.addAttribute("show", show.get());
+                model.addAttribute("dateSum", showDatesRepository.countShowDatesByShow(show.get()));
+                model.addAttribute("dates", showDatesRepository.findShowDatesByShow(show.get()));
+                return "user/show-register-date";
+            }
+        }
 
         Optional<Show> optionalShow = showRepository.findById(id);
         Show show;

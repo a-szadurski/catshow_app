@@ -6,6 +6,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "roles")
@@ -19,8 +21,10 @@ public class Role {
     @Id
     @Column(name = "role_id")
     private Long id;
-    @Column(name = "role_name")
-    private String name;
 
+    @Column(name = "role_name")
+    @NotNull
+    @NotEmpty
+    private String name;
 
 }

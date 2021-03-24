@@ -10,7 +10,7 @@
         <table class="w3-table-all w3-third">
             <tbody>
             <tr>
-                <th colspan="2">
+                <th colspan="3">
                     Register a Cat
                 </th>
             </tr>
@@ -21,14 +21,17 @@
                 <td>
                     <form:input path="name"/>
                 </td>
+                <td><form:errors path="name" cssClass="w3-text-red"/></td>
             </tr>
             <tr>
                 <td>
                     Cat's sex:
                 </td>
                 <td>
-                    <form:input path="sex"/>
+                    Female <form:radiobutton path="sex" value="F" cssClass="w3-radio"/> /
+                    Male <form:radiobutton path="sex" value="M" cssClass="w3-radio"/>
                 </td>
+                <td><form:errors path="sex" cssClass="w3-text-red"/></td>
             </tr>
             <tr>
                 <td>
@@ -37,6 +40,7 @@
                 <td>
                     <form:input path="ems"/>
                 </td>
+                <td><form:errors path="ems" cssClass="w3-text-red"/></td>
             </tr>
             <tr>
                 <td>
@@ -45,6 +49,7 @@
                 <td>
                     <form:input path="pedigree"/>
                 </td>
+                <td><form:errors path="pedigree" cssClass="w3-text-red"/></td>
             </tr>
             <tr>
                 <td>
@@ -53,6 +58,7 @@
                 <td>
                     <form:input path="breeder"/>
                 </td>
+                <td><form:errors path="breeder" cssClass="w3-text-red"/></td>
             </tr>
             <tr>
                 <td>
@@ -61,6 +67,7 @@
                 <td>
                     <form:input path="mother"/>
                 </td>
+                <td><form:errors path="mother" cssClass="w3-text-red"/></td>
             </tr>
             <tr>
                 <td>
@@ -69,6 +76,7 @@
                 <td>
                     <form:input path="father"/>
                 </td>
+                <td><form:errors path="father" cssClass="w3-text-red"/></td>
             </tr>
             <tr>
                 <td>
@@ -77,9 +85,10 @@
                 <td>
                     <form:input type="date" path="birthDate"/>
                 </td>
+                <td><form:errors path="birthDate" cssClass="w3-text-red"/></td>
             </tr>
             <tr>
-                <th colspan="2">
+                <th colspan="3">
                     <input type="submit">
                 </th>
             </tr>
@@ -112,7 +121,6 @@
             <th>Mother</th>
             <th>Father</th>
             <th>Date of Birth</th>
-            <th></th>
         </tr>
         <c:forEach items="${catsList}" var="catsList">
 

@@ -60,7 +60,7 @@
                 <td>
                     <form:password path="matchingPassword"/>
                 </td>
-                <td><form:errors path="matchingPassword" cssClass="w3-text-red"/></td>
+                <td><form:errors cssClass="w3-text-red"/></td>
 
             </tr>
             <tr>
