@@ -3,14 +3,17 @@ package pl.coderslab.catshowapp.controllers.user;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.catshowapp.entities.Judge;
 import pl.coderslab.catshowapp.repositories.JudgeRepository;
+import pl.coderslab.catshowapp.validationcustom.AtLeastOneCategory;
+import pl.coderslab.catshowapp.validationcustom.AtLeastOneCategoryValidator;
 
-import java.util.List;
+import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
@@ -26,16 +29,19 @@ public class RegisterJudgeController {
     @GetMapping
     public String displayForm(Model model) {
 
-        List<Judge> judgeList = judgeRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
-
         model.addAttribute("judge", new Judge());
-        model.addAttribute("judgesList", judgeList);
+        model.addAttribute("judgesList", judgeRepository.findAll(Sort.by(Sort.Direction.DESC, "id")));
 
         return "user/judge-register";
     }
 
     @PostMapping
-    public String saveJudge(Judge judge) {
+    public String saveJudge(@Valid Judge judge,  BindingResult result, Model model) {
+
+        if (result.hasErrors()) {
+            model.addAttribute("judgesList", judgeRepository.findAll(Sort.by(Sort.Direction.DESC, "id")));
+            return "user/judge-register";
+        }
 
         judgeRepository.save(judge);
 

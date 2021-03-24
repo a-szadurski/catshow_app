@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="dashboard-menu.jsp" %>
 
 <div class="w3-container">
@@ -11,7 +11,7 @@
         <table class="w3-table-all w3-third">
             <tbody>
             <tr>
-                <th colspan="2">
+                <th colspan="3">
                     Register a Judge
                 </th>
             </tr>
@@ -22,6 +22,7 @@
                 <td>
                     <form:input path="email"/>
                 </td>
+                <td><form:errors path="email" cssClass="w3-text-red"/></td>
             </tr>
             <tr>
                 <td>
@@ -30,6 +31,7 @@
                 <td>
                     <form:input path="firstName"/>
                 </td>
+                <td><form:errors path="firstName" cssClass="w3-text-red"/></td>
             </tr>
             <tr>
                 <td>
@@ -38,41 +40,46 @@
                 <td>
                     <form:input path="lastName"/>
                 </td>
+                <td><form:errors path="lastName" cssClass="w3-text-red"/></td>
             </tr>
             <tr>
                 <td>
                     Category 01:
                 </td>
                 <td>
-                    <form:checkbox path="category01"/>
+                    <form:checkbox path="category01" cssClass="w3-check"/>
                 </td>
+                <td><form:errors cssClass="w3-text-red"/></td>
             </tr>
             <tr>
                 <td>
                     Category 02:
                 </td>
                 <td>
-                    <form:checkbox path="category02"/>
+                    <form:checkbox path="category02" cssClass="w3-check"/>
                 </td>
+                <td><form:errors cssClass="w3-text-red"/></td>
             </tr>
             <tr>
                 <td>
                     Category 03:
                 </td>
                 <td>
-                    <form:checkbox path="category03"/>
+                    <form:checkbox path="category03" cssClass="w3-check"/>
                 </td>
+                <td><form:errors cssClass="w3-text-red"/></td>
             </tr>
             <tr>
                 <td>
                     Category 04:
                 </td>
                 <td>
-                    <form:checkbox path="category04"/>
+                    <form:checkbox path="category04" cssClass="w3-check"/>
                 </td>
+                <td><form:errors cssClass="w3-text-red"/></td>
             </tr>
             <tr>
-                <th colspan="2">
+                <th colspan="3">
                     <input type="submit" value="Save">
                 </th>
             </tr>
