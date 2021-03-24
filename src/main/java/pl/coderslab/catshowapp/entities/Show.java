@@ -24,19 +24,19 @@ public class Show {
 
     @Column(name = "show_name")
     @NotNull
-    @Size(min=1, max=100)
+    @Size(min = 1, max = 100)
     private String name;
 
     @NotNull
-    @Size(min=1, max=100)
+    @Size(min = 1, max = 100)
     private String city;
 
     @NotNull
-    @Size(min=1, max=100)
+    @Size(min = 1, max = 100)
     private String country;
 
     @NotNull
-    @Size(min=1, max=150)
+    @Size(min = 1, max = 150)
     private String organizer;
 
     @Column(columnDefinition = "boolean default false")

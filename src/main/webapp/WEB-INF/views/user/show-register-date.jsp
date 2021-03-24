@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="dashboard-menu.jsp" %>
 
 <br>
@@ -55,7 +55,7 @@
                     <form:input path="date" type="date"/>
                     <input type="submit" value="Assign date">
                     <form:errors path="date" cssClass="w3-text-red"/></form:form>
-                </th>
+            </th>
         </tr>
         <c:forEach items="${dates}" var="addedDates">
             <tr>

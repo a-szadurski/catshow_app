@@ -26,12 +26,12 @@ public class Exhibitor {
 
     @Column(name = "first_name")
     @NotNull
-    @Size(min=1, max=100)
+    @Size(min = 1, max = 100)
     private String firstName;
 
     @Column(name = "last_name")
     @NotNull
-    @Size(min=1, max=100)
+    @Size(min = 1, max = 100)
     private String lastName;
 
     @NotNull
@@ -40,6 +40,6 @@ public class Exhibitor {
     private String email;
 
     @NotNull
-    @Size(min=9, max=30)
+    @Size(min = 9, max = 30)
     private String phone;
 }

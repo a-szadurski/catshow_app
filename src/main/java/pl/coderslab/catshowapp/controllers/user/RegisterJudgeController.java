@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.catshowapp.entities.Judge;
 import pl.coderslab.catshowapp.repositories.JudgeRepository;
-import pl.coderslab.catshowapp.validationcustom.AtLeastOneCategory;
-import pl.coderslab.catshowapp.validationcustom.AtLeastOneCategoryValidator;
 
 import javax.validation.Valid;
 import java.util.Optional;
@@ -36,7 +34,7 @@ public class RegisterJudgeController {
     }
 
     @PostMapping
-    public String saveJudge(@Valid Judge judge,  BindingResult result, Model model) {
+    public String saveJudge(@Valid Judge judge, BindingResult result, Model model) {
 
         if (result.hasErrors()) {
             model.addAttribute("judgesList", judgeRepository.findAll(Sort.by(Sort.Direction.DESC, "id")));

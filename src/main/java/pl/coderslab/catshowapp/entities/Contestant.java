@@ -6,7 +6,10 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "contestants")
@@ -22,7 +25,7 @@ public class Contestant {
     private Long id;
 
     @NotNull
-    @Size(min=1, max=100)
+    @Size(min = 1, max = 100)
     private String rating;
 
     @NotNull

@@ -7,7 +7,9 @@ import pl.coderslab.catshowapp.breeds.BreedCategory04;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-import java.util.*;
+import java.util.EnumSet;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class EmsValidator implements ConstraintValidator<ValidEms, String> {
