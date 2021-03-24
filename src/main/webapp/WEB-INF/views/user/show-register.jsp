@@ -11,7 +11,7 @@
         <table class="w3-table-all w3-third">
             <tbody>
             <tr>
-                <th colspan="2">
+                <th colspan="3">
                     Register a Show
                 </th>
             </tr>
@@ -22,6 +22,7 @@
                 <td>
                     <form:input path="city"/>
                 </td>
+                <td><form:errors path="city" cssClass="w3-text-red"/></td>
             </tr>
             <tr>
                 <td>
@@ -30,6 +31,7 @@
                 <td>
                     <form:input path="country"/>
                 </td>
+                <td><form:errors path="country" cssClass="w3-text-red"/></td>
             </tr>
             <tr>
                 <td>
@@ -38,6 +40,7 @@
                 <td>
                     <form:input path="name"/>
                 </td>
+                <td><form:errors path="name" cssClass="w3-text-red"/></td>
             </tr>
             <tr>
                 <td>
@@ -46,9 +49,10 @@
                 <td>
                     <form:input path="organizer"/>
                 </td>
+                <td><form:errors path="organizer" cssClass="w3-text-red"/></td>
             </tr>
             <tr>
-                <th colspan="2">
+                <th colspan="3">
                     <input type="submit" value="Save & assign dates (next step)">
                 </th>
             </tr>
