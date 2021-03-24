@@ -1,5 +1,7 @@
 package pl.coderslab.catshowapp.controllers.user;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.coderslab.catshowapp.controllers.LoginController;
 import pl.coderslab.catshowapp.entities.Cat;
 import pl.coderslab.catshowapp.repositories.CatRepository;
 import pl.coderslab.catshowapp.repositories.ContestantRepository;
@@ -28,7 +31,11 @@ public class RegisterCatController {
         this.catRepository = catRepository;
         this.exhibitorRepository = exhibitorRepository;
         this.contestantRepository = contestantRepository;
+
     }
+
+    final Logger logger
+            = LoggerFactory.getLogger(this.getClass());
 
     @GetMapping
     public String displayForm(Model model) {
@@ -45,7 +52,7 @@ public class RegisterCatController {
         if (result.hasErrors()) {
 
             model.addAttribute("catsList", catRepository.findAll(Sort.by(Sort.Direction.DESC, "id")));
-
+            logger.debug("RegisterCat binding result: " + cat.toString());
             return "user/cat-register";
         }
 
