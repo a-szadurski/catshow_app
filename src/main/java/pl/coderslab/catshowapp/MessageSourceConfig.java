@@ -18,6 +18,7 @@ public class MessageSourceConfig {
 
         messageSource.setBasename("classpath:messages");
         messageSource.setDefaultEncoding("UTF-8");
+        messageSource.setAlwaysUseMessageFormat(true);
         return messageSource;
     }
 
