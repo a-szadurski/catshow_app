@@ -9,7 +9,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.coderslab.catshowapp.controllers.LoginController;
 import pl.coderslab.catshowapp.entities.Cat;
 import pl.coderslab.catshowapp.repositories.CatRepository;
 import pl.coderslab.catshowapp.repositories.ContestantRepository;
@@ -24,6 +23,8 @@ public class RegisterCatController {
     public final CatRepository catRepository;
     public final ExhibitorRepository exhibitorRepository;
     public final ContestantRepository contestantRepository;
+    final Logger logger
+            = LoggerFactory.getLogger(this.getClass());
 
     public RegisterCatController(CatRepository catRepository, ExhibitorRepository exhibitorRepository,
                                  ContestantRepository contestantRepository) {
@@ -33,9 +34,6 @@ public class RegisterCatController {
         this.contestantRepository = contestantRepository;
 
     }
-
-    final Logger logger
-            = LoggerFactory.getLogger(this.getClass());
 
     @GetMapping
     public String displayForm(Model model) {

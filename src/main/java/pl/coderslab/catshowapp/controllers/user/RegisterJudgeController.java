@@ -43,7 +43,7 @@ public class RegisterJudgeController {
 
         judgeRepository.save(judge);
 
-        return "redirect:/user/judge/register" + judge.getId();
+        return "redirect:/user/judge/register/" + judge.getId();
     }
 
     @GetMapping("/{id}")
