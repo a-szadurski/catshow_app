@@ -39,8 +39,6 @@ public class User {
     @Size(min = 1, message = "{Size.userDto.email}")
     private String email;
 
-    //    @NotNull(message = "{NotEmpty.user.password}")
-//    @Size(min = 8, max = 25)
     private String password;
 
     private boolean enabled;
